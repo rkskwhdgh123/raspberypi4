@@ -42,28 +42,22 @@ import network,time
 from umqtt.simple import MQTTClient #导入MQTT板块
 from machine import I2C,Pin,Timer
 from lsm6dsox import LSM6DSOX
-
 step1 = 0
 from machine import Pin, I2C
 lsm = LSM6DSOX(I2C(0, scl=Pin(13), sda=Pin(12)))
-
 def WIFI_Connect():
     wlan = network.WLAN(network.STA_IF) #STA模式
     wlan.active(True)                   #激活接口
     start_time=time.time()              #记录时间做超时判断
-
     if not wlan.isconnected():
         print('connecting to network...')
         wlan.connect('iptime105', '@rjsghks12') #输入WIFI账号密码
-        
     if wlan.isconnected():
         print('network information:', wlan.ifconfig())
         return True    
-
 def MQTT_Send(tim):
     client.publish(TOPIC, 'Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_accel()))
     print('Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_accel()))
-
 if WIFI_Connect():
     SERVER = '192.168.0.6'   # my rapa ip address , mqtt broker가 실행되고 있음
     PORT = 1883
@@ -71,7 +65,6 @@ if WIFI_Connect():
     TOPIC = 'rp2040' # TOPIC 이름
     client = MQTTClient(CLIENT_ID, SERVER, PORT,keepalive=30)
     client.connect()
-
     #开启RTOS定时器，编号为-1,周期1000ms，执行socket通信接收任务
     tim = Timer(-1)
     tim.init(period=1000, mode=Timer.PERIODIC,callback=MQTT_Send)
