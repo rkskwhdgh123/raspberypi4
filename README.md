@@ -78,3 +78,95 @@ if WIFI_Connect():
     tim = Timer(-1)
     tim.init(period=1000, mode=Timer.PERIODIC,callback=MQTT_Send)
 ```
+
+2.걸음수 측정
+```
+import random
+from typing import List
+from pymata4 import pymata4
+import re
+import time
+import pygame
+import paho.mqtt.client as mqtt_client
+
+broker_address = "localhost"
+broker_port = 1883
+
+topic = "rp2040"
+
+pygame.mixer.init()
+board = pymata4.Pymata4()
+servo=board.set_pin_mode_servo(11) 
+
+def move_servo(v):
+    board.servo_write(11,v)
+    time.sleep(1)
+
+def connect_mqtt() -> mqtt_client:
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print("Connected to MQTT Broker")
+        else:
+            print(f"Failed to connect, Returned code: {rc}")
+
+    def on_disconnect(client, userdata, flags, rc=0):
+        print(f"disconnected result code {str(rc)}")
+
+    def on_log(client, userdata, level, buf):
+        print(f"log: {buf}")
+
+    # client 생성
+    client_id = f"mqtt_client_{random.randint(0, 1000)}"
+    client = mqtt_client.Client(client_id)
+
+    # 콜백 함수 설정
+    client.on_connect = on_connect
+    client.on_disconnect = on_disconnect
+    client.on_log = on_log
+
+    # broker 연결
+    client.connect(host=broker_address, port=broker_port)
+    return client
+
+C1=0
+C2=0
+walking=0
+def subscribe(client: mqtt_client):
+    def on_message(client, userdata, msg):
+        global walking
+        print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+        list=[float(s) for s in re.findall(r'-?\d+\.?\d*', msg.payload.decode())] #text=>list
+        if list[0]<0:
+            list[0]=-list[0]
+        if list[1]<0:
+            list[1]=-list[1]
+        if list[2]<0:
+            list[2]=-list[2]
+        SVM=sum(list)
+        global C1
+        global C2
+        if SVM> 2.5:
+            C1=1
+        elif SVM<0.9:
+            C2=1
+        
+        if C1==1 and C2==1:
+            C1=0
+            C2=0
+            walking+=1
+        print(walking)
+        print(round((SVM),2)) #
+    
+    client.subscribe(topic) #1
+    client.on_message = on_message
+
+
+def run():
+    client = connect_mqtt()
+    subscribe(client)
+    client.loop_forever()
+
+
+if __name__ == '__main__':
+    run()
+```    
