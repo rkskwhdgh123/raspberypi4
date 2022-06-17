@@ -273,7 +273,7 @@ if __name__ == '__main__':
 https://user-images.githubusercontent.com/103232943/174259474-a9ed95f8-d337-435a-8f56-6bc838595c46.mp4
 
 
-
+1:04초 오타 서있는 상태와 뛰는 상태의 서브모터 속도 차이
 
 
 
