@@ -264,8 +264,7 @@ if __name__ == '__main__':
 
 4. 동작 영상 확인
 
-
-https://user-images.githubusercontent.com/103232943/174250959-d022b82d-1fe4-4f78-8786-8bd2aad6da21.mp4
+<iframe width="640" height="360" src="https://www.youtube.com/embed/6Az2cNU7gUw" frameborder="0" gesture="media" allowfullscreen=""></iframe>
 
 동영상 url:https://www.youtube.com/watch?v=37BgV_y6UZ8&t=27s
 
