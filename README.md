@@ -1,4 +1,4 @@
-# raspberypi4
+# raspberypi4 1801298 
 라즈베리파이4 수업 기말대체과제
 
 rp2040내부의 센서는 
