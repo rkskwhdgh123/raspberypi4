@@ -1,6 +1,11 @@
 # raspberypi4 1801298 
 라즈베리파이4 수업 기말대체과제
 
+플로우 차트
+
+![블럭도](https://user-images.githubusercontent.com/103232943/174290327-1d187a3c-f413-4fc3-b0fa-89d68b97d927.PNG)
+
+
 rp2040내부의 센서는 
 
 x축 =>  땅과 수평으로 걸어가는 방향의 변화
