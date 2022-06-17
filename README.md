@@ -267,6 +267,6 @@ if __name__ == '__main__':
 
 https://user-images.githubusercontent.com/103232943/174250959-d022b82d-1fe4-4f78-8786-8bd2aad6da21.mp4
 
-
+동영상 url:https://www.youtube.com/watch?v=37BgV_y6UZ8&t=27s
 
 
