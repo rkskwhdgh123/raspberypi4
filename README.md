@@ -259,3 +259,7 @@ if __name__ == '__main__':
 
 3. 'rp2040'타픽으로 날아간 text를 노드레드 대시보드로 확인하기
 
+![프랩 대시보드](https://user-images.githubusercontent.com/103232943/174229119-24b59401-aee6-46db-a882-da7052ec1071.PNG)
+
+
+
