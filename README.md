@@ -262,4 +262,11 @@ if __name__ == '__main__':
 ![프랩 대시보드](https://user-images.githubusercontent.com/103232943/174229119-24b59401-aee6-46db-a882-da7052ec1071.PNG)
 
 
+4. 동작 영상 확인
+
+
+https://user-images.githubusercontent.com/103232943/174250959-d022b82d-1fe4-4f78-8786-8bd2aad6da21.mp4
+
+
+
 
