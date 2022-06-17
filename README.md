@@ -264,9 +264,7 @@ if __name__ == '__main__':
 
 
 4. 동작 영상 확인
-
+```
 <iframe width="994" height="559" src="https://www.youtube.com/embed/37BgV_y6UZ8" title="소프트웨어학부 스마트모빌리티전공 과제 mqtt_gtts_sevo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-동영상 url:https://www.youtube.com/watch?v=37BgV_y6UZ8&t=27s
-
+```
 
