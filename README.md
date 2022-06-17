@@ -268,3 +268,9 @@ if __name__ == '__main__':
 <iframe width="994" height="559" src="https://www.youtube.com/embed/37BgV_y6UZ8" title="소프트웨어학부 스마트모빌리티전공 과제 mqtt_gtts_sevo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+
+
+https://user-images.githubusercontent.com/103232943/174257092-5c9ba2ea-eec8-4c6b-ac53-81b95af78a9c.mp4
+
+
+
